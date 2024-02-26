@@ -14,8 +14,8 @@ table<User> key(id) users = table
 
 service / on new http:Listener(8080) 
 {
-    resource function get getallusers() returns table<User>|error?
+    resource function get getallusers() returns string
     {
-        return users;
+        return users.toJsonString();
     }    
 }
