@@ -17,5 +17,12 @@ service / on new http:Listener(8080)
     resource function get getallusers() returns string
     {
         return users.toJsonString();
-    }    
+    }
+
+    resource function post insertuser(User payload) returns User|error?
+    {
+
+        users.add(payload);
+        return payload;
+    }
 }
